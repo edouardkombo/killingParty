@@ -124,6 +124,8 @@ function runDemo(canvasId) {
 	
 	var bullets = [];
 	canvas.addEventListener("mouseup", function (e) {
+                //Play sound
+                $('#sound').append('<embed id="embed_player" src="sounds/beretta.mp3" autostart="true" hidden="true"></embed>');
 		var bullet = new Bullet(camera, scene);
 		bullets.push(bullet);
 	});
@@ -185,10 +187,10 @@ function createDemoScene(scene) {
 	
 	var cubeSize = 2.5;
 	
-	for (var i = 0; i < 15; i++) {
+	for (var i = 0; i < 25; i++) {
 		var box = BABYLON.Mesh.CreateBox("box1", cubeSize, scene);
 		box.tag = "enemy";
-		box.position = new BABYLON.Vector3(random(0, 50), cubeSize / 2, random(0, 50));
+		box.position = new BABYLON.Vector3(random(0, 20), cubeSize / 2, random(0, 20));
 		box.material = boxMaterial;
 		box.checkCollisions = true;
 	}
